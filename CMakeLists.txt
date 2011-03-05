@@ -36,4 +36,5 @@ macro_log_feature(QSCINTILLA_FOUND "QScintilla2" "QScintilla2 libraries" "http:/
 
 install( FILES lib/Alien/SmokeQt.pm DESTINATION ${CMAKE_INSTALL_PREFIX}/../ )
 
+ENABLE_TESTING()
 macro_display_feature_log()
