@@ -3,6 +3,7 @@ project(kdebindings)
 cmake_minimum_required(VERSION 2.6)
 
 add_subdirectory(generator)
+add_subdirectory(cmake/modules)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/modules )
@@ -20,8 +21,6 @@ if(WITH_QT3_SUPPORT)
     add_definitions(-DQT3_SUPPORT)
 endif(WITH_QT3_SUPPORT)
 
-macro_optional_add_subdirectory(smoke)
-
 macro_optional_find_package(QImageBlitz)
 macro_log_feature(QIMAGEBLITZ_FOUND "QImageBlitz" "QImageBlitz library" "http://www.kde.org" FALSE "" "Needed to compile QImageBlitz bindings")
 
@@ -33,6 +32,8 @@ macro_log_feature(PHONON_FOUND "Phonon" "Phonon multimedia framework" "http://ww
 
 macro_optional_find_package(QScintilla)
 macro_log_feature(QSCINTILLA_FOUND "QScintilla2" "QScintilla2 libraries" "http://www.riverbankcomputing.co.uk/software/qscintilla/intro" FALSE "" "Needed to compile QScintilla2 bindings")
+
+macro_optional_add_subdirectory(smoke)
 
 install( FILES lib/Alien/SmokeQt.pm DESTINATION ${CMAKE_INSTALL_PREFIX}/../ )
 
